@@ -20,7 +20,7 @@ var pt = new PriceTicker(TimeSpan.FromSeconds(1));
 ```
 
 __Conditional Alarm__<br>
-Below code detects the price gap among exchange markets.
+Detects the price gap among exchange markets.
 ```csharp
 new ConditionalAlarm(pt)
     .AddCondition((a, b) => {

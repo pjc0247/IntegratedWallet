@@ -11,6 +11,7 @@ Goal
 Watcher
 ----
 __Basic Ticker__
+Prints last price in every seconds.
 ```csharp
 var pt = new PriceTicker(TimeSpan.FromSeconds(1));
     pt.AddTicker("coinone", coinone.ticker, (id, data) => {
@@ -19,6 +20,7 @@ var pt = new PriceTicker(TimeSpan.FromSeconds(1));
 ```
 
 __Conditional Alarm__
+Below code detects the price gap among exchange markets.
 ```csharp
 new ConditionalAlarm(pt)
     .AddCondition((a, b) => {

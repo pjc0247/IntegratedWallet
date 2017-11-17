@@ -1,6 +1,13 @@
 IntegratedWallet
 ====
 
+Goal
+----
+* 통합된 API
+* 가격 감시
+* 통합된 지갑 관리
+* 통합된 잔고 로깅
+
 Watcher
 ----
 __Basic Ticker__

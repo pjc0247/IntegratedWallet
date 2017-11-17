@@ -11,6 +11,8 @@ namespace Exchange.Korbit
 		public static readonly string Endpoint = "https://api.korbit.co.kr/";
 		public static readonly string EndpointTestNet = "https://api.korbit.co.kr/";
 
+		public Auth Auth;
+
 		private JsonClient Api;
 
 		public static Korbit Create()
@@ -26,8 +28,8 @@ namespace Exchange.Korbit
 		{
 			Api = new JsonClient(endpoint);
 
-			ticker = new Ticker(Api);
-			auth = new Auth(Api);
+			Ticker = new Ticker(Api);
+			Auth = new Auth(Api);
 		}
 	}
 }

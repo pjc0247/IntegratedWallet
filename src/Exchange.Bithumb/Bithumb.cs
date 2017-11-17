@@ -12,6 +12,8 @@ namespace Exchange.Bithumb
 	{
 		public static readonly string Endpoint = "https://api.bithumb.com/";
 
+		public Auth Auth;
+
 		private JsonClient Api;
 
 		public static Bithumb Create()
@@ -24,8 +26,8 @@ namespace Exchange.Bithumb
 			Api = new JsonClient(endpoint);
 			AddConverters();
 
-			ticker = new Ticker(Api);
-			auth = new Auth(Api);
+			Ticker = new Ticker(Api);
+			Auth = new Auth(Api);
 		}
 
 		private void AddConverters()

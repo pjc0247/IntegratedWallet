@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace Exchange
 {
-	public class MarketProviderBase
+	public class WalletBase
 	{
-		public TickerBase Ticker { get; protected set; }
-		public WalletBase Wallet { get; protected set; }
+		public virtual Task<WalletData> GetBalances()
+		{
+			throw new NotImplementedException();
+		}
 	}
 }

@@ -16,8 +16,7 @@ namespace Exchange
 
 		public bool IsAuthorized = false;
 
-		protected virtual TimeSpan TokenLifetime
-			=> TimeSpan.FromHours(1);
+		protected TimeSpan TokenLifetime = TimeSpan.FromHours(1);
 
 		public virtual async Task<string> GetAccessTokenAsync()
 		{

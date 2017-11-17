@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace Exchange
 {
-	public class MarketProviderBase
+	public class WalletData
 	{
-		public TickerBase Ticker { get; protected set; }
-		public WalletBase Wallet { get; protected set; }
+		public float KrwValue;
+
+		public Dictionary<string, float> Balances;
 	}
 }

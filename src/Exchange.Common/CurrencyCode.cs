@@ -8,6 +8,9 @@ namespace Exchange
 {
 	public class CurrencyCode
 	{
+		public static readonly string KRW = "krw";
+		public static readonly string USD = "usd";
+
 		public static readonly string BTC = "btc";
 		public static readonly string XRP = "xrp";
 		public static readonly string ETH = "eth";

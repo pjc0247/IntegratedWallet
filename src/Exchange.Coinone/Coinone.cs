@@ -12,6 +12,8 @@ namespace Exchange.Coinone
 	{
 		public static readonly string Endpoint = "https://api.coinone.co.kr/";
 
+		public Auth Auth;
+
 		private JsonClient Api;
 
 		public static Coinone Create()
@@ -24,11 +26,19 @@ namespace Exchange.Coinone
 			Api = new JsonClient(endpoint);
 			AddConverters();
 
-			ticker = new Ticker(Api);
+			Ticker = new Ticker(Api);
+			Auth = new Auth();
+			Wallet = new Wallet(Api);
+
+			Api.AuthData = Auth;
+			var hg = new HeaderGenerator(Api);
+			hg.Register();
 		}
+
 		private void AddConverters()
 		{
 			Api.Converters.Add(new TickerAllResponseConverter());
+			Api.Converters.Add(new GetBalancesResponseConverter());
 		}
 	}
 }

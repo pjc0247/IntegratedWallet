@@ -46,6 +46,14 @@ namespace Sentinel
 				Callback = callback
 			});
 		}
+		public void AddGlobalCallback(OnTicker callback)
+		{
+			if (IsRunning)
+				throw new InvalidOperationException("isRunning => true");
+
+			foreach (var data in Tickers)
+				data.Value.Callback += callback;
+		}
 
 		public void Start()
 		{

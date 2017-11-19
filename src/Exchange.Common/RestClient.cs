@@ -61,22 +61,20 @@ namespace Exchange
 			if (AuthData != null && AuthData.IsAuthorized)
 				http.DefaultRequestHeaders.Add("Authorization", "Bearer " + await AuthData.GetAccessTokenAsync());
 
-#if DEBUG
-			Console.WriteLine($"##POST : {uri}");
-			Console.WriteLine(JsonConvert.SerializeObject(JsonConvert.DeserializeObject(payload), Formatting.Indented));
-#endif
+			Logger.WriteLine($"##POST : {uri}");
+			Logger.WriteLine(JsonConvert.SerializeObject(JsonConvert.DeserializeObject(payload), Formatting.Indented));
 
 			foreach (var generator in HeaderGenerators)
 			{
 				var key = generator.Key;
 				var value = generator.Value.Invoke(uri, payload);
 
-#if DEBUG
-				Console.WriteLine($"[HG] {key} : {value}");
-#endif
+				Logger.WriteLine($"[HG] {key} : {value}");
 
 				http.DefaultRequestHeaders.Add(key, value);
 			}
+
+			Logger.WriteLine("");
 
 			var content = new StringContent(payload);
 			var response = await http.PostAsync(uri, content);

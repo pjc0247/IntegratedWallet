@@ -50,6 +50,8 @@
     <Compile Include="RestClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TickerBase.cs" />
+    <Compile Include="Util\Logger.cs" />
+    <Compile Include="Util\ToStringExt.cs" />
     <Compile Include="WalletBase.cs" />
     <Compile Include="WalletData.cs" />
   </ItemGroup>

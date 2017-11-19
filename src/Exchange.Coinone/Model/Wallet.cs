@@ -12,7 +12,7 @@ namespace Exchange.Coinone.Model
 {
 	public class BalanceData
 	{
-		public double avaliable;
+		public double avail;
 		public double balance;
 	}
 

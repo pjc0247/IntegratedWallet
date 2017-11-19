@@ -29,7 +29,15 @@ namespace Exchange.Coinone
 
 			return new WalletData()
 			{
-
+				Balances = response.balances.Select(x => new
+				{
+					Currency = x.Key,
+					BalanceData = new Exchange.BalanceData
+					{
+						Avaliable = x.Value.avail,
+						Balance = x.Value.balance
+					}
+				}).ToDictionary(x => x.Currency, y => y.BalanceData)
 			};
 		}
 	}

@@ -13,6 +13,7 @@ namespace Exchange.Bithumb
 		public static readonly string Endpoint = "https://api.bithumb.com/";
 
 		public Auth Auth;
+		public Wallet Wallet;
 
 		private JsonClient Api;
 
@@ -28,6 +29,7 @@ namespace Exchange.Bithumb
 
 			Ticker = new Ticker(Api);
 			Auth = new Auth(Api);
+			Wallet = new Wallet(Api);
 		}
 
 		private void AddConverters()

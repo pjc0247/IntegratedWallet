@@ -17,5 +17,10 @@ namespace Exchange.Bithumb
 		{
 			Api = client;
 		}
+
+		public void Login()
+		{
+
+		}
 	}
 }

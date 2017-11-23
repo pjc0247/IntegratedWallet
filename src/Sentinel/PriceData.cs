@@ -10,6 +10,6 @@ namespace Sentinel
 	{
 		public string Id;
 		public string Currency;
-		public float Price;
+		public double Price;
 	}
 }

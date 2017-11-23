@@ -13,12 +13,12 @@ namespace Sentinel
 	{
 		private PriceTicker PriceTicker;
 
-		private Dictionary<string, Dictionary<string, float>> PriceTable;
+		private Dictionary<string, Dictionary<string, double>> PriceTable;
 		private Dictionary<OnEvalCondition, OnConditionHit> Conditionas;
 
 		public ConditionalAlarm(PriceTicker pt)
 		{
-			PriceTable = new Dictionary<string, Dictionary<string, float>>();
+			PriceTable = new Dictionary<string, Dictionary<string, double>>();
 			Conditionas = new Dictionary<OnEvalCondition, OnConditionHit>();
 
 			PriceTicker = pt;
@@ -31,7 +31,7 @@ namespace Sentinel
 			return this;
 		}
 
-		private void OnTicker(string id, Dictionary<string, float> prices)
+		private void OnTicker(string id, Dictionary<string, double> prices)
 		{
 			PriceTable[id] = prices;
 

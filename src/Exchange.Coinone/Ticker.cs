@@ -17,7 +17,7 @@ namespace Exchange.Coinone
 			api = client;
 		}
 
-		public async override Task<float> QuerySingle(string currency)
+		public async override Task<double> QuerySingle(string currency)
 		{
 			var param = new Dictionary<string, object>()
 			{
@@ -27,7 +27,7 @@ namespace Exchange.Coinone
 
 			return response.last;
 		}
-		public async override Task<Dictionary<string, float>> QueryAll()
+		public async override Task<Dictionary<string, double>> QueryAll()
 		{
 			var param = new Dictionary<string, object>()
 			{
@@ -35,7 +35,7 @@ namespace Exchange.Coinone
 			};
 			var response = await api.GetAsync<TickerAllResponse>("/ticker/", param);
 
-			return new Dictionary<string, float>()
+			return new Dictionary<string, double>()
 			{
 				[CurrencyCode.BTC] = (response.data[CC.ToCoinoneCurrency(CurrencyCode.BTC)].last),
 				[CurrencyCode.ETH] = (response.data[CC.ToCoinoneCurrency(CurrencyCode.ETH)].last),

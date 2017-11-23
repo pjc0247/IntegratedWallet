@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5E9E5575-0F0B-4C25-A692-03D3CFC7924D}</ProjectGuid>
+    <ProjectGuid>{2696DF86-43D9-45BB-A765-E85B468E00B6}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Exchange.Coinone</RootNamespace>
-    <AssemblyName>Exchange.Coinone</AssemblyName>
+    <RootNamespace>Exchange.Poloniex</RootNamespace>
+    <AssemblyName>Exchange.Poloniex</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,9 +30,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -43,15 +40,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Auth.cs" />
     <Compile Include="CC.cs" />
-    <Compile Include="Coinone.cs" />
-    <Compile Include="HeaderGenerator.cs" />
     <Compile Include="Model\Ticker.cs" />
-    <Compile Include="Model\Wallet.cs" />
-    <Compile Include="Ticker.cs" />
+    <Compile Include="Poloniex.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Wallet.cs" />
+    <Compile Include="Ticker.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Exchange.Common\Exchange.Common.csproj">
@@ -59,9 +52,5 @@
       <Name>Exchange.Common</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

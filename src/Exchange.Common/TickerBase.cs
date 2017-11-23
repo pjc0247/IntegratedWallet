@@ -8,11 +8,11 @@ namespace Exchange
 {
 	public class TickerBase
 	{
-		public virtual Task<float> QuerySingle(string currency)
+		public virtual Task<double> QuerySingle(string currency)
 		{
 			throw new NotImplementedException();
 		}
-		public virtual Task<Dictionary<string, float>> QueryAll()
+		public virtual Task<Dictionary<string, double>> QueryAll()
 		{
 			throw new NotImplementedException();
 		}

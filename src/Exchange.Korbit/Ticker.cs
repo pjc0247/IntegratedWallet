@@ -17,7 +17,7 @@ namespace Exchange.Korbit
 			api = client;
 		}
 
-		public async override Task<float> QuerySingle(string currency)
+		public async override Task<double> QuerySingle(string currency)
 		{
 			var param = new Dictionary<string, object>()
 			{
@@ -28,17 +28,17 @@ namespace Exchange.Korbit
 
 			return response.last;
 		}
-		public async override Task<Dictionary<string, float>> QueryAll()
+		public async override Task<Dictionary<string, double>> QueryAll()
 		{
 			// https://stackoverflow.com/questions/23175611/task-whenall-result-ordering
-			var results = await Task.WhenAll<float>(
+			var results = await Task.WhenAll<double>(
 				QuerySingle(CurrencyCode.BTC),
 				QuerySingle(CurrencyCode.ETH),
 				QuerySingle(CurrencyCode.ETC),
 				QuerySingle(CurrencyCode.XRP),
 				QuerySingle(CurrencyCode.BCH));
 
-			return new Dictionary<string, float>()
+			return new Dictionary<string, double>()
 			{
 				[CurrencyCode.BTC] = results[0],
 				[CurrencyCode.ETH] = results[1],

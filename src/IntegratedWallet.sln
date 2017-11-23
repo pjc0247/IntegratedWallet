@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exchange.Coinone", "Exchang
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sentinel", "Sentinel\Sentinel.csproj", "{AE77AD7D-5727-4C21-981D-3A6E2CAEFE4F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exchange.Poloniex", "Exchange.Poloniex\Exchange.Poloniex.csproj", "{2696DF86-43D9-45BB-A765-E85B468E00B6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{AE77AD7D-5727-4C21-981D-3A6E2CAEFE4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AE77AD7D-5727-4C21-981D-3A6E2CAEFE4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AE77AD7D-5727-4C21-981D-3A6E2CAEFE4F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2696DF86-43D9-45BB-A765-E85B468E00B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2696DF86-43D9-45BB-A765-E85B468E00B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2696DF86-43D9-45BB-A765-E85B468E00B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2696DF86-43D9-45BB-A765-E85B468E00B6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -9,7 +9,7 @@ using Exchange;
 
 namespace Sentinel
 {
-	public delegate void OnTicker(string id, Dictionary<string, float> prices);
+	public delegate void OnTicker(string id, Dictionary<string, double> prices);
 
     public class PriceTicker
     {

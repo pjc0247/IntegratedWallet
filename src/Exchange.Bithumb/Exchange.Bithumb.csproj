@@ -47,8 +47,10 @@
     <Compile Include="Bithumb.cs" />
     <Compile Include="CC.cs" />
     <Compile Include="Model\Ticker.cs" />
+    <Compile Include="Model\Wallet.cs" />
     <Compile Include="Ticker.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Wallet.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Exchange.Common\Exchange.Common.csproj">

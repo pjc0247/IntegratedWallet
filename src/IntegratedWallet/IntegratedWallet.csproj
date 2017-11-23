@@ -65,6 +65,10 @@
       <Project>{8e0db445-ff86-4a99-8270-8439beaf8425}</Project>
       <Name>Exchange.Korbit</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Exchange.Poloniex\Exchange.Poloniex.csproj">
+      <Project>{2696df86-43d9-45bb-a765-e85b468e00b6}</Project>
+      <Name>Exchange.Poloniex</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Sentinel\Sentinel.csproj">
       <Project>{ae77ad7d-5727-4c21-981d-3a6e2caefe4f}</Project>
       <Name>Sentinel</Name>

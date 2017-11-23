@@ -35,6 +35,8 @@ namespace Exchange
 			if (AuthData != null && AuthData.IsAuthorized)
 				http.DefaultRequestHeaders.Add("Authorization", "Bearer " + await AuthData.GetAccessTokenAsync());
 
+			Logger.WriteLine($"##GET : {uri}");
+
 			foreach (var generator in HeaderGenerators)
 			{
 				var key = generator.Key;
@@ -43,16 +45,19 @@ namespace Exchange
 				http.DefaultRequestHeaders.Add(key, value);
 			}
 
-			var response = await http.GetAsync(uri);
+			Logger.WriteLine("");
 
+			var response = await http.GetAsync(uri);
 			if (response.IsSuccessStatusCode == false)
 			{
 				Console.WriteLine(response.Content.ReadAsStringAsync().Result);
 				throw new HttpRequestException($"{response.StatusCode}");
-
 			}
 
-			return await response.Content.ReadAsStringAsync();
+			var responseBody = await response.Content.ReadAsStringAsync();
+			Logger.WriteLine(responseBody);
+
+			return responseBody;
 		}
 		public async Task<string> PostAsync(string uri, string payload)
 		{
@@ -78,7 +83,6 @@ namespace Exchange
 
 			var content = new StringContent(payload);
 			var response = await http.PostAsync(uri, content);
-
 			if (response.IsSuccessStatusCode == false)
 			{
 				Console.WriteLine(uri);

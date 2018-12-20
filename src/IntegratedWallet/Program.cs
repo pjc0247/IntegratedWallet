@@ -21,13 +21,13 @@ namespace IntegratedWallet
 			var coinone = Coinone.Create();
 
 			var pt = new PriceTicker(TimeSpan.FromSeconds(1));
-			pt.AddTicker("coinone", coinone.ticker, (id, data) =>
+			pt.AddTicker("coinone", coinone.Ticker, (id, data) =>
 			{
-				Console.WriteLine($"BTC : {data[CurrencyCode.BTC]}");
+				Console.WriteLine($"COINONE BTC : {data[CurrencyCode.BTC]}");
 			});
-			pt.AddTicker("korbit", korbit.ticker, (id, data) =>
+			pt.AddTicker("korbit", korbit.Ticker, (id, data) =>
 			{
-				Console.WriteLine($"BTC : {data[CurrencyCode.BTC]}");
+				Console.WriteLine($"KORBIT BTC : {data[CurrencyCode.BTC]}");
 			});
 			pt.Start();
 

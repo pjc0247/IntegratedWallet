@@ -1,7 +1,7 @@
 IntegratedWallet
 ====
 
-Goal
+Features
 ----
 * One-API regardless exchange you want to use.
 * Realtime price monitoring

@@ -19,26 +19,32 @@ namespace IntegratedWallet
 		{
 			var korbit = Korbit.Create();
 			var coinone = Coinone.Create();
+            var bithumb = Bithumb.Create();
 
 			var pt = new PriceTicker(TimeSpan.FromSeconds(1));
-			pt.AddTicker("coinone", coinone.Ticker, (id, data) =>
-			{
-				Console.WriteLine($"COINONE BTC : {data[CurrencyCode.BTC]}");
-			});
+			//pt.AddTicker("coinone", coinone.Ticker, (id, data) =>
+		//	{
+		//	});
 			pt.AddTicker("korbit", korbit.Ticker, (id, data) =>
 			{
-				Console.WriteLine($"KORBIT BTC : {data[CurrencyCode.BTC]}");
-			});
-			pt.Start();
+                //Console.WriteLine($"KB BTC : {data[CurrencyCode.BTC]}");
+            });
+            pt.AddTicker("bithumb", bithumb.Ticker, (id, data) =>
+            {
+                //Console.WriteLine($"BTH BTC : {data[CurrencyCode.BTC]}");
+            });
+            pt.Start();
 
 			new ConditionalAlarm(pt)
 				.AddCondition((a, b) =>
 				{
-					return true;
-				},
+                    return a.Price >= b.Price * 1.005f;
+                },
 				(a, b) =>
 				{
-					Console.WriteLine($"{a.Currency} / {b.Currency}v");
+                    var profit = a.Price / b.Price;
+					Console.WriteLine(
+                        $"{a.Id} {a.Currency} {a.Price} / {b.Id} {b.Currency} {b.Price} / {profit}");
 				});
 
 			Console.Read();

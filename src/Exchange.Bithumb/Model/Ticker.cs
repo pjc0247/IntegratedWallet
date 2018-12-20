@@ -49,7 +49,11 @@ namespace Exchange.Bithumb.Model
 			{
 				if (o.Key == "date") continue;
 
-				result.Add(o.Key, o.Value.ToObject<TickerData>());
+                try
+                {
+                    result.Add(o.Key, o.Value.ToObject<TickerData>());
+                }
+                catch { }
 			}
 
 			return result;

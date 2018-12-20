@@ -1,10 +1,10 @@
 IntegratedWallet
 ====
 
-Goal
+Features
 ----
-* 통합된 API
-* 가격 감시
+* One-API regardless exchange you want to use.
+* Realtime price monitoring
 * 통합된 지갑 관리
 * 통합된 잔고 로깅
 

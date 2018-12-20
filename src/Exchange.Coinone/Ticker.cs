@@ -34,26 +34,17 @@ namespace Exchange.Coinone
 				{"currency", "all"}
 			};
 
-            try
-            {
-                var response = await api.GetAsync<TickerAllResponse>("/ticker/", param);
+            var response = await api.GetAsync<TickerAllResponse>("/ticker/", param);
 
-                return new Dictionary<string, double>()
-                {
-                    [CurrencyCode.BTC] = (response.data[CC.ToCoinoneCurrency(CurrencyCode.BTC)].last),
-                    [CurrencyCode.ETH] = (response.data[CC.ToCoinoneCurrency(CurrencyCode.ETH)].last),
-                    [CurrencyCode.ETC] = (response.data[CC.ToCoinoneCurrency(CurrencyCode.ETC)].last),
-                    [CurrencyCode.XRP] = (response.data[CC.ToCoinoneCurrency(CurrencyCode.XRP)].last),
-                    [CurrencyCode.BCH] = (response.data[CC.ToCoinoneCurrency(CurrencyCode.BCH)].last),
-                    [CurrencyCode.QTUM] = (response.data[CC.ToCoinoneCurrency(CurrencyCode.QTUM)].last),
-                };
-            }
-            catch (Exception e)
+            return new Dictionary<string, double>()
             {
-                Console.WriteLine(e);
-            }
-
-            throw new System.Exception();
-		}
+                [CurrencyCode.BTC] = (response.data[CC.ToCoinoneCurrency(CurrencyCode.BTC)].last),
+                [CurrencyCode.ETH] = (response.data[CC.ToCoinoneCurrency(CurrencyCode.ETH)].last),
+                [CurrencyCode.ETC] = (response.data[CC.ToCoinoneCurrency(CurrencyCode.ETC)].last),
+                [CurrencyCode.XRP] = (response.data[CC.ToCoinoneCurrency(CurrencyCode.XRP)].last),
+                [CurrencyCode.BCH] = (response.data[CC.ToCoinoneCurrency(CurrencyCode.BCH)].last),
+                [CurrencyCode.QTUM] = (response.data[CC.ToCoinoneCurrency(CurrencyCode.QTUM)].last),
+            };
+        }
 	}
 }

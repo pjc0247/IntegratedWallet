@@ -35,7 +35,7 @@ namespace Exchange
 			if (AuthData != null && AuthData.IsAuthorized)
 				http.DefaultRequestHeaders.Add("Authorization", "Bearer " + await AuthData.GetAccessTokenAsync());
 
-			Logger.WriteLine($"##GET : {uri}");
+			//Logger.WriteLine($"##GET : {uri}");
 
 			foreach (var generator in HeaderGenerators)
 			{
@@ -45,7 +45,7 @@ namespace Exchange
 				http.DefaultRequestHeaders.Add(key, value);
 			}
 
-			Logger.WriteLine("");
+			//Logger.WriteLine("");
 
 			var response = await http.GetAsync(uri);
 			if (response.IsSuccessStatusCode == false)
@@ -55,7 +55,7 @@ namespace Exchange
 			}
 
 			var responseBody = await response.Content.ReadAsStringAsync();
-			Logger.WriteLine(responseBody);
+			//Logger.WriteLine(responseBody);
 
 			return responseBody;
 		}

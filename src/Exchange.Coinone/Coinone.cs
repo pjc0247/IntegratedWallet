@@ -10,7 +10,7 @@ namespace Exchange.Coinone
 
 	public class Coinone : MarketProviderBase
 	{
-		public static readonly string Endpoint = "https://api.coinone.co.kr/";
+		public static readonly string Endpoint = "https://api.coinone.co.kr";
 
 		public Auth Auth;
 

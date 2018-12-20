@@ -24,11 +24,18 @@ namespace Exchange.Coinone
 
 		private string On_X_Coinone_Payload(string uri, string payload)
 		{
+            if (string.IsNullOrEmpty(payload))
+                return "";
+
 			return Convert.ToBase64String(Encoding.UTF8.GetBytes(payload));
 		}
 		private string On_X_Coinone_Signature(string uri, string payload)
 		{
-			var payloadBase64 = Convert.ToBase64String(Encoding.UTF8.GetBytes(payload));
+            if (Client.AuthData.IsAuthorized == false) return "";
+
+            var payloadBase64 = "";
+            if (string.IsNullOrEmpty(payload) == false)
+			    payloadBase64 = Convert.ToBase64String(Encoding.UTF8.GetBytes(payload));
 			var key = ((Auth)Client.AuthData).SecretKey;
 
 			using (HMACSHA512 hmac = new HMACSHA512(Encoding.UTF8.GetBytes(key)))

@@ -4,16 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{107C6099-BD1B-4AFD-AFF6-0B39541FA643}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>IntegratedWallet</RootNamespace>
-    <AssemblyName>IntegratedWallet</AssemblyName>
+    <ProjectGuid>{CE812576-6781-4B75-989D-FF99C525D3B6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Exchange.Upbit</RootNamespace>
+    <AssemblyName>Exchange.Upbit</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,7 +23,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -42,42 +41,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="CC.cs" />
+    <Compile Include="Model\Ticker.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Ticker.cs" />
+    <Compile Include="Upbit.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Exchange.Bithumb\Exchange.Bithumb.csproj">
-      <Project>{76a9495b-ccb3-4edb-95ca-9ce0cdea2672}</Project>
-      <Name>Exchange.Bithumb</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Exchange.Coinone\Exchange.Coinone.csproj">
-      <Project>{5e9e5575-0f0b-4c25-a692-03d3cfc7924d}</Project>
-      <Name>Exchange.Coinone</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Exchange.Common\Exchange.Common.csproj">
       <Project>{d52072b7-db70-46a2-8202-bdee0d673691}</Project>
       <Name>Exchange.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Exchange.Korbit\Exchange.Korbit.csproj">
-      <Project>{8e0db445-ff86-4a99-8270-8439beaf8425}</Project>
-      <Name>Exchange.Korbit</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Exchange.Poloniex\Exchange.Poloniex.csproj">
-      <Project>{2696df86-43d9-45bb-a765-e85b468e00b6}</Project>
-      <Name>Exchange.Poloniex</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Exchange.Upbit\Exchange.Upbit.csproj">
-      <Project>{ce812576-6781-4b75-989d-ff99c525d3b6}</Project>
-      <Name>Exchange.Upbit</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Sentinel\Sentinel.csproj">
-      <Project>{ae77ad7d-5727-4c21-981d-3a6e2caefe4f}</Project>
-      <Name>Sentinel</Name>
-    </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

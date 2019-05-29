@@ -25,21 +25,10 @@ namespace Exchange.Upbit
         }
         public async override Task<Dictionary<string, double>> QueryAll()
         {
-            var results = await Task.WhenAll<double>(
-                QuerySingle(CurrencyCode.BTC),
-                QuerySingle(CurrencyCode.ETH),
-                QuerySingle(CurrencyCode.ETC),
-                QuerySingle(CurrencyCode.XRP),
-                QuerySingle(CurrencyCode.BCH));
+            var response = await api.GetAsync<TickerResponse[]>(
+                $"/v1/ticker?markets=KRW-BTC,KRW-ETH,KRW-XRP,KRW-DASH,KRW-EOS", null);
 
-            return new Dictionary<string, double>()
-            {
-                [CurrencyCode.BTC] = results[0],
-                [CurrencyCode.ETH] = results[1],
-                [CurrencyCode.ETC] = results[2],
-                [CurrencyCode.XRP] = results[3],
-                [CurrencyCode.BCH] = results[4]
-            };
+            return response.ToDictionary(x => x.market.Split('-')[1], x => x.trade_price);
         }
     }
 }

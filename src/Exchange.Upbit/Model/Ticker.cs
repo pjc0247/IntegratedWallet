@@ -8,6 +8,7 @@ namespace Exchange.Upbit.Model
 {
     class TickerResponse
     {
+        public string market;
         public double trade_price;
     }
 }
